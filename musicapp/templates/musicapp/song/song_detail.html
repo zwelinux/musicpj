@@ -1,0 +1,28 @@
+{% extends 'musicapp/song/base.html' %}
+
+{% block title %}
+    {{ song.name }}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <h2>{{ song.name }}</h2>
+        
+        <p class="mb-5">
+            Main Artist : {{ song.artist }}<br>
+            Featuring : {{ song.artist_two }}
+        </p>
+        <audio controls>
+            <source src="{{ song.track.url }}" type="audio/mpeg">
+        </audio>
+    </div>
+</div>
+
+
+
+{% endblock %}

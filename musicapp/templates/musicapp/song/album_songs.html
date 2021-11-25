@@ -1,0 +1,26 @@
+{% extends 'musicapp/song/base.html' %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <h1><a href="{% url 'musicapp:albums' %}">Albums</a></h1>
+        <h2>Album : {{ name }}</h2>
+
+        {% for song in songs %}
+            <h3>{{ song.name }}</h3>
+            <audio controls>
+                <source src="{{ song.track.url }}" type="audio/mpeg">
+            </audio>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

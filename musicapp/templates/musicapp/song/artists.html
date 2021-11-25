@@ -1,0 +1,22 @@
+{% extends 'musicapp/song/base.html' %}
+
+{% block title %}
+    {{ Artist.name }}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+
+        <h2>Artists</h2>
+        {% for artist in artists %}
+            <h3><a href="{% url 'musicapp:artist_songs' artist.name %}">{{ artist.name }}</a></h3>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

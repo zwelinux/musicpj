@@ -1,0 +1,68 @@
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <h3>Artists</h3>
+        <ul>
+            <li><a href="{% url 'musicapp:artists' %}">All</a></li>
+            {% for artist in artists %}
+                <li><a href="{{ artist.get_absolute_url }}">{{ artist.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <h3>Playlists</h3>
+        <ul>
+            <li><a href="{% url 'musicapp:playlists' %}">All</a></li>
+            {% for playlist in playlists %}
+                <li><a href="{% url 'musicapp:playlist_songs' playlist.name %}">{{ playlist.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <h3>Albums</h3>
+        <ul>
+            <li><a href="{% url 'musicapp:albums' %}">All</a></li>
+            {% for album in albums %}
+                <li><a href="{% url 'musicapp:album_songs' album.name %}">{{ album.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <h3>
+            {% if artist %}
+                {{ artist.name }}
+            {% else %}
+                Songs
+            {% endif %}
+        </h3>
+
+        {% for song in songs %}
+            <h2>
+                <a href="{{ song.get_absolute_url }}">{{ song.name }}</a>
+            </h2>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="box">
+    <div class="slide-img">
+        <img src="">
+    </div>
+    <div class="detail-box"></div>
+</div>
+
+{% endblock %}
